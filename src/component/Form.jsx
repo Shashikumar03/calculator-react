@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 
 function Form() {
-  const [value, setValue] = useState("0");
+  const [value, setValue] = useState("");
+
   function handleForm(e) {
     e.preventDefault();
   }
 
   function cal(e) {
     try {
-      console.log(eval(value));
       setValue(eval(value).toString());
     } catch (error) {
-      // setValue(error);
+      setValue(error);
+      setTimeout(() => setValue(""), 1000);
     }
   }
 
